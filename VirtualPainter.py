@@ -19,7 +19,7 @@ for imPath in myList:
     overlayList.append(image)
 print(len(overlayList))
 header = overlayList[0]
-drawColor = (255, 0, 255)
+drawColor = (227, 177, 87)
 
 cap = cv2.VideoCapture(0)
 # cap.set(3, 1280)
@@ -52,8 +52,6 @@ while True:
         # print("lmList")
         # print(len(lmList[0]))
         # print(lmList[0][8])
-
-        # xp, yp = 0, 0
 
         # tip of index and middle fingers
         x1, y1 = lmList[0][8][1:]
