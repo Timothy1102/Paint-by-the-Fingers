@@ -5,7 +5,7 @@ import os
 import HandTrackingModule as htm
 
 #######################
-brushThickness = 25
+brushThickness = 15
 eraserThickness = 100
 ########################
 
