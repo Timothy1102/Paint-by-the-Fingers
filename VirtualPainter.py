@@ -27,7 +27,7 @@ cap = cv2.VideoCapture(0)
 
 detector = htm.handDetector(detectionCon=0.65,maxHands=1)
 xp, yp = 0, 0
-imgCanvas = np.zeros((720, 1280, 3), np.uint8)
+imgCanvas = np.ones((720, 1280, 3), np.uint8)
 
 
 pTime = 0
@@ -110,10 +110,11 @@ while True:
 
             xp, yp = x1, y1
 
-
+ 
         # Clear Canvas when all fingers are up
         if all (x >= 1 for x in fingers):
-            imgCanvas = np.zeros((720, 1280, 3), np.uint8)
+            imgCanvas = np.ones((720, 1280, 3), np.uint8)
+
 
     imgGray = cv2.cvtColor(imgCanvas, cv2.COLOR_BGR2GRAY)
     _, imgInv = cv2.threshold(imgGray, 50, 255, cv2.THRESH_BINARY_INV)
@@ -134,6 +135,6 @@ while True:
     # img = cv2.addWeighted(img,0.5,imgCanvas,0.5,0)
     cv2.imshow("Image", img)
     cv2.imshow("Canvas", imgCanvas)
-    cv2.imshow("Inv", imgInv)
+    # cv2.imshow("Inv", imgInv)
     if cv2.waitKey(1) == 27:
         break
